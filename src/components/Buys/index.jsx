@@ -10,7 +10,7 @@ const Sales = ({ products, setAlternate }) => {
   );
 
   const totalSaidas = vendas.reduce((acc, actualValue) => {
-    return actualValue.price + acc;
+    return Number(actualValue.price) + acc;
   }, 0);
   return (
     <>
