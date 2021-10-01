@@ -5,7 +5,7 @@ const Sales = ({ products, setAlternate }) => {
 
   const fruitsSold = Math.abs(
     vendas.reduce((ValorAnterior, valorAtual) => {
-      return valorAtual.quantity + ValorAnterior;
+      return Number(valorAtual.quantity) + ValorAnterior;
     }, 0)
   );
 

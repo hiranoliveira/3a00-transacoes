@@ -12,6 +12,10 @@ function App() {
     { name: "laranja", quantity: 50, price: 6 },
   ]);
 
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState();
+  const [price, setPrice] = useState();
+
   const [alternate, setAlternate] = useState(true);
 
   return (
@@ -23,7 +27,16 @@ function App() {
         ) : (
           <Sales products={products} setAlternate={setAlternate} />
         )}
-        <Form products={products} setProducts={setProducts} />
+        <Form
+          products={products}
+          setProducts={setProducts}
+          name={name}
+          setName={setName}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          price={price}
+          setPrice={setPrice}
+        />
         <AllProds products={products} />
       </header>
     </div>

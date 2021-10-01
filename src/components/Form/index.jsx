@@ -3,14 +3,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 
-const Form = ({ products, setProducts }) => {
-  const [name, setName] = useState("");
-  const [qtd, setQtd] = useState("");
-  const [price, setPrice] = useState("");
-
-  const cadastrar = (name, qtd, price) => {
-    console.log(name, qtd, price);
-    setProducts([...products, { name, qtd, price }]);
+const Form = ({
+  products,
+  setProducts,
+  name,
+  setName,
+  quantity,
+  setQuantity,
+  price,
+  setPrice,
+}) => {
+  const cadastrar = (name, quantity, price) => {
+    console.log(name, quantity, price);
+    setProducts([...products, { name, quantity, price }]);
     console.log(products);
   };
 
@@ -28,8 +33,9 @@ const Form = ({ products, setProducts }) => {
         <br />
         <input
           placeholder="Qtd saída/entrada ex: 20 / -20"
-          onChange={(e) => setQtd(e.target.value)}
-          name="qtd"
+          onChange={(e) => setQuantity(e.target.value)}
+          name="quantity"
+          type="number"
         />
 
         <br />
@@ -37,10 +43,13 @@ const Form = ({ products, setProducts }) => {
           placeholder="Preço"
           onChange={(e) => setPrice(e.target.value)}
           name="price"
+          type="number"
         />
 
         <br />
-        <button onClick={() => cadastrar(name, qtd, price)}>cadastrar</button>
+        <button onClick={() => cadastrar(name, quantity, price)}>
+          cadastrar
+        </button>
       </div>
     </>
   );
